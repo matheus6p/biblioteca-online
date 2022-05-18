@@ -41,12 +41,12 @@ export function Login() {
   return (
     <div className="w-[100vw] h-[100vh] flex justify-center items-center">
       <div className="w-[420px] ">
-        <h1 className="text-3xl text-center mb-3 text-white">Login</h1>
+        <h1 className="text-3xl text-center mb-3 dark:text-white">Login</h1>
         <form onSubmit={handleLogin} className="w-[500] bg-pink">
           <Input
             onChange={(e) => setLogin(e.target.value)}
             type="email"
-            placeholder="Login"
+            placeholder="E-mail"
             name="email"
           />
           <div className="relative">
@@ -67,13 +67,13 @@ export function Login() {
           <div className="flex gap-4 mt-2 justify-between items-center">
             <Link
               to="/registro"
-              className="text-white hover:underline hover:underline-offset-1 hover:text-zinc-400 transition-all"
+              className="dark:text-white hover:underline hover:underline-offset-1 hover:dark:text-zinc-400 hover:text-zinc-400 transition-all"
             >
               Registrar-se
             </Link>
             <Link
               to="/password-recovery"
-              className="text-white hover:underline hover:underline-offset-1 hover:text-zinc-400 transition-all"
+              className="dark:text-white hover:underline hover:underline-offset-1 hover:dark:text-zinc-400 hover:text-zinc-400 transition-all"
             >
               Esqueci minha senha
             </Link>

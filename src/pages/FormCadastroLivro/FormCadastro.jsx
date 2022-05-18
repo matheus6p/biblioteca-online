@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
+import { Input } from "../../components/Input.jsx";
 import { api, getAutores } from "../../services/api.js";
 import { success, error } from "../../services/notify.js";
 
@@ -67,15 +68,14 @@ export function FormCadastro() {
         onSubmit={handleSubmit}
         className="flex flex-col py-3 w-6/12"
       >
-        <input
-          className="border-1 border-brand-500 mb-2 p-2 rounded-md w-full bg-zinc-800 text-zinc-50 focus:border-brand-500 focus:ring-brand-500 focus:outline-none focus:ring-1"
+        <Input
           type="text"
           placeholder="Titulo"
           onChange={(e) => setLivro(e.target.value)}
         />
         <div id="autor" className="flex justify-between gap-2">
           <select
-            className="border-1 border-brand-500 mb-2 p-2 rounded-md max-w-[320px] bg-zinc-800 text-zinc-50 focus:border-brand-500 focus:ring-brand-500 focus:outline-none focus:ring-1"
+            className="border-1 border-brand-500 mb-2 p-2 rounded-md max-w-[320px] dark:bg-slate-800 text-zinc-400 dark:text-zinc-50 focus:border-brand-500 focus:ring-brand-500 focus:outline-none focus:ring-1"
             name="autores"
             id="autores"
             onChange={(e) => {
@@ -99,9 +99,8 @@ export function FormCadastro() {
               );
             })}
           </select>
-          <input
+          <Input
             ref={autorInput}
-            className="border-1 border-brand-500 mb-2 p-2 rounded-md w-full bg-zinc-800 text-zinc-50 focus:border-brand-500 focus:ring-brand-500 focus:outline-none focus:ring-1"
             type="text"
             placeholder="Novo Autor"
             onChange={(e) => setNovoAutor(e.target.value)}
@@ -114,14 +113,12 @@ export function FormCadastro() {
           </button>
         </div>
         <div className="flex gap-2">
-          <input
-            className="border-1 border-brand-500 mb-2 p-2 rounded-md w-full bg-zinc-800 text-zinc-50 focus:border-brand-500 focus:ring-brand-500 focus:outline-none focus:ring-1"
+          <Input
             type="text"
             placeholder="Preço"
             onChange={(e) => setPrice(parseInt(e.target.value))}
           />
-          <input
-            className="border-1 border-brand-500 mb-2 p-2 rounded-md w-full bg-zinc-800 text-zinc-50 focus:border-brand-500 focus:ring-brand-500 focus:outline-none focus:ring-1"
+          <Input
             type="text"
             placeholder="Numero de Paginas"
             onChange={(e) => setNumPaginas(parseInt(e.target.value))}

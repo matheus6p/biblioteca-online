@@ -28,7 +28,9 @@ export function Registro() {
   return (
     <div className="w-[100vw] h-[100vh] flex justify-center items-center">
       <div className="w-[420px] ">
-        <h1 className="text-3xl text-center mb-3 text-white">Registre-se</h1>
+        <h1 className="text-3xl text-center mb-3 dark:text-white">
+          Registre-se
+        </h1>
         <form onSubmit={handleFormRegister} className="w-[500] bg-pink">
           <Input
             type="text"

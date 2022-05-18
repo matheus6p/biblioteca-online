@@ -9,9 +9,9 @@ export default function ShowPassword({ showPassword, setShowPassword }) {
       onClick={() => setShowPassword(!showPassword)}
     >
       {showPassword ? (
-        <Eye size={32} className="text-zinc-500" />
+        <Eye size={32} className="dark:text-slate-500 text-zinc-500" />
       ) : (
-        <EyeClosed size={32} className="text-zinc-600" />
+        <EyeClosed size={32} className="dark:text-slate-600 text-zinc-400" />
       )}
     </button>
   );
