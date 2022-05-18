@@ -1,20 +1,22 @@
 import React, { useState } from "react";
 import { Button } from "../../components/Button";
 import { Input } from "../../components/Input";
-import { register } from "../../services/register";
+import { signUp } from "../../services/signUp";
 import { success, error } from "../../services/notify.js";
+import ShowPassword from "../../components/ShowPassword";
 
 export function Registro() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   async function handleFormRegister(e) {
     e.preventDefault(); //remove after tests done
     console.log({ name, email, phoneNumber, password });
     try {
-      const res = await register(name, email, phoneNumber, password);
+      const res = await signUp(name, email, phoneNumber, password);
       console.log(res);
       success("Bem-Vindo, novo membro!");
     } catch (err) {
@@ -36,8 +38,9 @@ export function Registro() {
             }}
           />
           <Input
-            type="text"
+            type="email"
             placeholder="E-mail"
+            name="email"
             onChange={(e) => {
               setEmail(e.target.value);
             }}
@@ -45,17 +48,25 @@ export function Registro() {
           <Input
             type="text"
             placeholder="Celular"
+            name="phone"
             onChange={(e) => {
               setPhoneNumber(e.target.value);
             }}
           />
-          <Input
-            type="password"
-            placeholder="Password"
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-          />
+          <div className="relative">
+            <Input
+              type={showPassword ? "text" : "password"}
+              placeholder="Senha"
+              name="password"
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+            />
+            <ShowPassword
+              showPassword={showPassword}
+              setShowPassword={setShowPassword}
+            />
+          </div>
           <Button>Registrar</Button>
         </form>
       </div>
